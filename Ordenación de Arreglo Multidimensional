@@ -1,25 +1,33 @@
-def buscar_valor(matriz, valor):
-    for i in range(len(matriz)):
-        for j in range(len(matriz[i])):
-            if matriz[i][j] == valor:
-                return (i, j)  # Retorna la posición (fila, columna)
-    return None
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n - 1):
+        for j in range(n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr
 
-# Definimos una matriz 3x3
+def ordenar_fila(matriz, fila):
+    if 0 <= fila < len(matriz):
+        matriz[fila] = bubble_sort(matriz[fila])
+    else:
+        print("Fila fuera de rango")
+
+def imprimir_matriz(matriz):
+    for fila in matriz:
+        print(fila)
+
+# Matriz 3x3 de ejemplo
 matriz = [
-    [10, 20, 30],
-    [40, 50, 60],
-    [70, 80, 90]
+    [9, 2, 7],
+    [4, 6, 1],
+    [8, 3, 5]
 ]
 
-# Definir el valor a buscar
-valor_a_buscar = int(input("Ingrese el valor a buscar: "))
+print("Matriz original:")
+imprimir_matriz(matriz)
 
-# Llamar a la función de búsqueda
-resultado = buscar_valor(matriz, valor_a_buscar)
+fila_a_ordenar = 1  # Se ordenará la segunda fila (índice 1)
+ordenar_fila(matriz, fila_a_ordenar)
 
-# Mostrar resultados
-if resultado:
-    print(f"El valor {valor_a_buscar} se encontró en la posición {resultado} (fila, columna).")
-else:
-    print(f"El valor {valor_a_buscar} no se encontró en la matriz.")
+print("\nMatriz con la fila ordenada:")
+imprimir_matriz(matriz)
