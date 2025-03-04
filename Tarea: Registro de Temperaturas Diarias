@@ -1,0 +1,38 @@
+# Datos climáticos aproximados para febrero de 2025
+ciudades = ["Guayaquil", "Cuenca", "Quito"]
+dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
+semanas = 4  # Febrero tiene 4 semanas completas
+
+# Temperaturas promedio aproximadas (en °C) para cada ciudad
+# Datos basados en tendencias históricas y aproximaciones:
+# Guayaquil: cálido y húmedo
+# Cuenca: fresco y lluvioso
+# Quito: fresco con lluvias frecuentes
+matriz_temperaturas = [
+    [  # Guayaquil
+        [28, 29, 30, 31, 30, 29, 28],  # Semana 1
+        [29, 30, 31, 32, 31, 30, 29],  # Semana 2
+        [30, 31, 32, 33, 32, 31, 30],  # Semana 3
+        [31, 32, 33, 34, 33, 32, 31],  # Semana 4
+    ],
+    [  # Cuenca
+        [16, 15, 14, 15, 16, 17, 16],  # Semana 1
+        [15, 14, 13, 14, 15, 16, 15],  # Semana 2
+        [14, 13, 12, 13, 14, 15, 14],  # Semana 3
+        [13, 12, 11, 12, 13, 14, 13],  # Semana 4
+    ],
+    [  # Quito
+        [12, 13, 14, 13, 12, 11, 12],  # Semana 1
+        [13, 14, 15, 14, 13, 12, 13],  # Semana 2
+        [14, 15, 16, 15, 14, 13, 14],  # Semana 3
+        [15, 16, 17, 16, 15, 14, 15],  # Semana 4
+    ],
+]
+
+# Calcular promedios semanales
+for indice_ciudad, ciudad in enumerate(ciudades):
+    print(f"\nPromedios de temperaturas para {ciudad}:")
+    for semana in range(semanas):
+        suma_temperaturas = sum(matriz_temperaturas[indice_ciudad][semana])
+        promedio = suma_temperaturas / len(dias)
+        print(f"  Semana {semana + 1}: {promedio:.2f}°C")
