@@ -1,0 +1,20 @@
+def calcular_descuento(monto_total, porcentaje_descuento=10):
+    """
+    Calcula el monto del descuento dado un monto total de compra y un porcentaje de descuento.
+    :param monto_total: float, el monto total de la compra
+    :param porcentaje_descuento: float, el porcentaje de descuento a aplicar (por defecto 10%)
+    :return: float, el monto del descuento
+    """
+    descuento = (monto_total * porcentaje_descuento) / 100
+    return descuento
+
+# Llamadas a la función
+monto1 = 100  # Monto de ejemplo
+monto2 = 200  # Otro monto de ejemplo
+
+descuento1 = calcular_descuento(monto1)  # Usando el descuento por defecto (10%)
+descuento2 = calcular_descuento(monto2, 15)  # Usando un descuento del 15%
+
+# Mostrar los resultados
+print(f"Compra 1: Monto Total = ${monto1}, Descuento = ${descuento1}, Monto Final = ${monto1 - descuento1}")
+print(f"Compra 2: Monto Total = ${monto2}, Descuento = ${descuento2}, Monto Final = ${monto2 - descuento2}")
