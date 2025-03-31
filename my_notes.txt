@@ -1,0 +1,46 @@
+# Tarea: Trabajo con Archivos de Texto en Python
+
+# Parte 1: Escritura de Archivo de Texto
+def escribir_archivo():
+    """
+    Crea un nuevo archivo llamado my_notes.txt y escribe tres líneas de notas personales.
+    """
+    try:
+        # Abrir el archivo en modo escritura ('w')
+        with open('my_notes.txt', 'w', encoding='utf-8') as archivo:
+            # Escribir tres líneas de notas personales
+            archivo.write("1. Recordar comprar leche y huevos en el supermercado.\n")
+            archivo.write("2. Revisar el correo electrónico pendiente por la tarde.\n")
+            archivo.write("3. Preparar la presentación para la reunión de mañana.\n")
+        print("Archivo 'my_notes.txt' creado y notas escritas correctamente.")
+    except IOError as e:
+        print(f"Error al escribir el archivo: {e}")
+
+# Parte 2: Lectura de Archivo de Texto
+def leer_archivo():
+    """
+    Abre el archivo my_notes.txt y lee su contenido línea por línea.
+    """
+    try:
+        # Abrir el archivo en modo lectura ('r')
+        with open('my_notes.txt', 'r', encoding='utf-8') as archivo:
+            print("\nLeyendo el contenido de 'my_notes.txt':")
+            # Leer y mostrar cada línea del archivo
+            linea_numero = 1
+            while True:
+                linea = archivo.readline()
+                if not linea:
+                    break  # Salir del bucle cuando no hay más líneas
+                print(f"Línea {linea_numero}: {linea.strip()}")
+                linea_numero += 1
+    except FileNotFoundError:
+        print("Error: El archivo 'my_notes.txt' no existe.")
+    except IOError as e:
+        print(f"Error al leer el archivo: {e}")
+
+# Ejecutar las funciones
+escribir_archivo()
+leer_archivo()
+
+# Nota: No es necesario cerrar el archivo explícitamente cuando se usa 'with'
+# ya que este manejo de contexto se encarga de cerrarlo automáticamente.
